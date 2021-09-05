@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>Javascript Digital Clock</title>
+	<!--CSS link-->
+	<link rel="stylesheet" href="style.css">	
+
+</head>
+<body>
+
+	<div class="container">
+		<p id="time"></p>
+	</div>
+
+	<!--JavaScript Start-->
+	<script>
+	(function() {
+		function addZeroBefore(v) {
+			return +v < 10 ? "0" + +v : v;
+		}
+	
+		function showTime() {
+			
+			var today = new Date();
+			var textTime = addZeroBefore(today.getHours()) + " : " + addZeroBefore(today.getMinutes()) + " : " + addZeroBefore(today.getSeconds());
+	
+			document.getElementById("time").innerHTML = textTime;
+	
+			setTimeout(function() {
+				showTime()
+			}, 1000);
+		}
+	
+		showTime();
+	})();
+	</script>	
+	<!--JavaScript End-->
+</body>
+</html>
